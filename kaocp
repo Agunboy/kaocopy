@@ -1,0 +1,3 @@
+#!/bin/bash
+cat tmp_kfile || curl http://kaomoji.ru/en/ > tmp_kfile
+cat tmp_kfile | grep "<td><span>" | awk '-F[<>]' '{print $5}' | dmenu | xclip -selection clipboard
